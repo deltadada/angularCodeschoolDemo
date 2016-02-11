@@ -1,0 +1,279 @@
+[
+
+    {
+        "model": "gemstore.gems",
+        "pk": 1,
+        "fields": {
+            "name": "Dodecahedron",
+            "price": "14.95",
+            "description": "Polyhedron with twelve flat faces.",
+            "canPurchase": false,
+            "soldOut": false
+        }
+    },
+    {
+        "model": "gemstore.gems",
+        "pk": 2,
+        "fields": {
+            "name": "Pentagonal",
+            "price": "29.95",
+            "description": "A five-sided gem.",
+            "canPurchase": false,
+            "soldOut": false
+        }
+    },
+    {
+        "model": "gemstore.gems",
+        "pk": 3,
+        "fields": {
+            "name": "Round",
+            "price": "12.00",
+            "description": "A perfectly round gem.",
+            "canPurchase": false,
+            "soldOut": false
+        }
+    },
+    {
+        "model": "gemstore.gems",
+        "pk": 4,
+        "fields": {
+            "name": "Square",
+            "price": "99.00",
+            "description": "A cubic gem.",
+            "canPurchase": false,
+            "soldOut": false
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 1,
+        "fields": {
+            "gem": 1,
+            "stars": 5,
+            "body": "This is a great gem.",
+            "author": "sarah@gmail.com"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 2,
+        "fields": {
+            "gem": 1,
+            "stars": 4,
+            "body": "This is a nice gem.",
+            "author": "laura@gmail.com"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 3,
+        "fields": {
+            "gem": 1,
+            "stars": 3,
+            "body": "This gem is okay.",
+            "author": "sally@hotmail.com"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 4,
+        "fields": {
+            "gem": 1,
+            "stars": 1,
+            "body": "This gem SUCKS.",
+            "author": "peter@bbc.org"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 5,
+        "fields": {
+            "gem": 2,
+            "stars": 5,
+            "body": "This gem ROCKS!",
+            "author": "danica@black.org"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 6,
+        "fields": {
+            "gem": 2,
+            "stars": 4,
+            "body": "This gem is super!",
+            "author": "paula@blue.org"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 7,
+        "fields": {
+            "gem": 2,
+            "stars": 2,
+            "body": "LAAAAME.",
+            "author": "sam@white.org"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 8,
+        "fields": {
+            "gem": 2,
+            "stars": 4,
+            "body": "I am satisfied with this gem.",
+            "author": "debbie@smart.net"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 9,
+        "fields": {
+            "gem": 3,
+            "stars": 5,
+            "body": "LOVE THIS GEM!",
+            "author": "lisa@smart.net"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 10,
+        "fields": {
+            "gem": 3,
+            "stars": 4,
+            "body": "Pretty!",
+            "author": "dino@smart.net"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 11,
+        "fields": {
+            "gem": 3,
+            "stars": 2,
+            "body": "Not impressed.",
+            "author": "mark@gmail.com"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 12,
+        "fields": {
+            "gem": 4,
+            "stars": 1,
+            "body": "Strictly for punters, mate.",
+            "author": "steve@gmail.com"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 13,
+        "fields": {
+            "gem": 4,
+            "stars": 4,
+            "body": "No problems.",
+            "author": "billy@smurf.com"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 14,
+        "fields": {
+            "gem": 4,
+            "stars": 2,
+            "body": "This gem is terrible.",
+            "author": "dj@orange.com"
+        }
+    },
+    {
+        "model": "gemstore.reviews",
+        "pk": 15,
+        "fields": {
+            "gem": 4,
+            "stars": 2,
+            "body": "Not very good.",
+            "author": "brandi@pink.com"
+        }
+    },
+    {
+        "model": "gemstore.gemimgtypes",
+        "pk": 1,
+        "fields": {"imgType": "FULL"}
+    },
+    {
+        "model": "gemstore.gemimgtypes",
+        "pk": 2,
+        "fields": {"imgType": "THUMB"}
+    },
+    {
+        "model": "gemstore.gemimgs",
+        "pk": 1,
+        "fields": {
+            "gem": 1,
+            "imgType": 1,
+            "url": "/assets/img/dec.png"
+        }
+    },
+    {
+        "model": "gemstore.gemimgs",
+        "pk": 2,
+        "fields": {
+            "gem": 1,
+            "imgType": 2,
+            "url": "/assets/img/dec_th.png"
+        }
+    },
+    {
+        "model": "gemstore.gemimgs",
+        "pk": 3,
+        "fields": {
+            "gem": 2,
+            "imgType": 1,
+            "url": "/assets/img/pent.png"
+        }
+    },
+    {
+        "model": "gemstore.gemimgs",
+        "pk": 4,
+        "fields": {
+            "gem": 2,
+            "imgType": 2,
+            "url": "/assets/img/pent_th.png"
+        }
+    },
+    {
+        "model": "gemstore.gemimgs",
+        "pk": 5,
+        "fields": {
+            "gem": 3,
+            "imgType": 1,
+            "url": "/assets/img/round.png"
+        }
+    },
+    {
+        "model": "gemstore.gemimgs",
+        "pk": 6,
+        "fields": {
+            "gem": 3,
+            "imgType": 2,
+            "url": "/assets/img/round_th.png"
+        }
+    },
+    {
+        "model": "gemstore.gemimgs",
+        "pk": 7,
+        "fields": {
+            "gem": 4,
+            "imgType": 1,
+            "url": "/assets/img/sq.png"
+        }
+    },
+    {
+        "model": "gemstore.gemimgs",
+        "pk": 8,
+        "fields": {
+            "gem": 4,
+            "imgType": 2,
+            "url": "/assets/img/sq_th.png"
+        }
+    }
+]

@@ -1,0 +1,7 @@
+		<h4>Reviews</h4>
+
+		<blockquote ng-repeat="review in product.reviews">
+			<b>Stars: {$review.stars$}</b>
+			{$review.body$}
+			<cite>{$review.author$}
+		</blockquote>

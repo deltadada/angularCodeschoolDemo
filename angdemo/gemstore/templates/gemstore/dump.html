@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--campus.codeschool.com/courses/shaping-up-with-angular-js/-->
+
+<!-- cd C:\gitrepo\angular_demo\django_angdemo\angdemo  -->
+<html ng-app='store'><!-- directive cites app var in app.js -->
+	<head>
+	<title>{{title}}</title>
+		<link rel="stylesheet" type="text/css" href="{% static "assets/css/bootstrap.min.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "assets/css/demo.css" %}">
+	</head>
+
+	<body ng-controller="StoreController as store">
+<p>Angular is loaded: {$ 9 - 8 $} {% if 1 == 1 %}True{% else %}False{% endif %}  </p>
+
+<div class="container col-">
+<table class="table table-striped">
+{% for g in gems_all %}
+<tr>
+<td><img src ="{% static "assets/img/dec_th.png" %}">
+</td>
+  <td>
+  {{g.name}}
+  </td>
+  <td>
+  {{g.price}}
+  </td>
+  <td>
+  {{g.description}}
+  </td>
+  <td>
+  {{g.stars}}
+  </td>
+</tr>
+{% endfor %}
+</table>
+</div>
+<!-- load angular -->
+		<script type="text/javascript" src="{% static "assets/js/angular.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "assets/js/angmodules/app.js" %}"></script>
+		<script type="text/javascript" src="{% static "assets/js/angmodules/products.js" %}"></script>
+
+	</body>
+</html>

@@ -1,0 +1,57 @@
+
+
+<h2>Submit your review</h2>
+<form name="reviewForm" class="col-lg-5" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+<div>
+<h2>Your Review</h2>
+<blockquote>
+	<b>Stars: {$reviewCtrl.review.stars$}</b><br>
+	{$reviewCtrl.review.body$}<br>
+	<cite>by {$reviewCtrl.review.author$}</cite>
+</blockquote>
+</div>
+		<fieldset>
+		<label for="starsInput">rating</label><br>
+		<select id="starsInput" ng-model="reviewCtrl.review.stars" class="form-control" required>
+			<option value="1">1 star</option>
+			<option value="2">2 stars</option>
+			<option value="3">3 stars</option>
+			<option value="4">4 stars</option>
+			<option value="5">5 stars</option>
+		</select>
+		</fieldset>
+		<fieldset>
+		<label for="bodyInput">review</label><br>
+		<textarea id="bodyInput" ng-model="reviewCtrl.review.body" class="form-control" required></textarea>
+		</fieldset>
+		<fieldset>
+		<label for="emailInput">name</label><br>
+		<input id="emailInput" type="email" ng-model="reviewCtrl.review.author" class="form-control" required/><br>
+		</fieldset>
+		<div>review form is {{reviewForm.$valid}}</div>
+
+		<fieldset>
+		<input type="submit" value="Submit" class="btn btn-primary"/>
+		</fieldset>
+</form>
+
+
+
+		<!-- <fieldset>
+		<label for="colorRadio">What color gem?</label>
+		<ul>
+		<li>
+		<input ng-model="reviewCtrl.review.color" name="color" type="radio" value="red" id="radRed"><label for="radRed">Red</label>
+		</li>
+		<li>
+		<input ng-model="reviewCtrl.review.color" name="color" type="radio" value="green" id="radGreen"><label for="radGreen">Green</label>
+		</li>
+		<li>
+		<input ng-model="reviewCtrl.review.color" name="color" type="radio" value="blue" id="radBlue"><label for="radBlue">Blue</label>
+		</li>
+		</ul>
+		</fieldset>
+		<fieldset>
+		<label for="termsCheckbox">terms</label><br>
+		<input id="termsCheckbox" ng-model="reviewCtrl.review.terms" type="checkbox"/>I agree to the terms.
+		</fieldset> -->
