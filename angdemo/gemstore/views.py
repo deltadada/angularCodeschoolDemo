@@ -11,15 +11,17 @@ def home(request):
     title = "Home"
     return render(request, './gemstore/index.html', {'title' : title})
 
-def db_dump(request):
+def django_db_dump(request):
     title = "Dump1"
     testString = "test"
     #gems_all2 = Gems.objects.all().prefetch_related('Reviews').order_by('stars')
-    gems_all = Gems.objects.all().order_by('price')
-    return render(request, './gemstore/dump.html', {'title' : title, 'gems_all':gems_all})
+    gems_all = Gems.objects.all().filter(canPurchase = True).filter(soldOut = False).order_by('price')
+    return render(request, './gemstore/django_db_dump.html', {'title' : title, 'gems_all':gems_all})
 
 def index(request):
     return HttpResponse("Hello, world. You're at the gemstore index.")
 
 def test(request):
     return HttpResponse("hello world")
+
+

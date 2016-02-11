@@ -7,7 +7,7 @@
             "name": "Dodecahedron",
             "price": "14.95",
             "description": "Polyhedron with twelve flat faces.",
-            "canPurchase": false,
+            "canPurchase": true,
             "soldOut": false
         }
     },
@@ -18,7 +18,7 @@
             "name": "Pentagonal",
             "price": "29.95",
             "description": "A five-sided gem.",
-            "canPurchase": false,
+            "canPurchase": true,
             "soldOut": false
         }
     },
@@ -29,7 +29,7 @@
             "name": "Round",
             "price": "12.00",
             "description": "A perfectly round gem.",
-            "canPurchase": false,
+            "canPurchase": true,
             "soldOut": false
         }
     },
@@ -40,8 +40,8 @@
             "name": "Square",
             "price": "99.00",
             "description": "A cubic gem.",
-            "canPurchase": false,
-            "soldOut": false
+            "canPurchase": true,
+            "soldOut": true
         }
     },
     {
@@ -50,7 +50,7 @@
         "fields": {
             "gem": 1,
             "stars": 5,
-            "body": "This is a great gem.",
+            "body": "Fantastic gem!",
             "author": "sarah@gmail.com"
         }
     },
@@ -60,7 +60,7 @@
         "fields": {
             "gem": 1,
             "stars": 4,
-            "body": "This is a nice gem.",
+            "body": "I like this gem.",
             "author": "laura@gmail.com"
         }
     },

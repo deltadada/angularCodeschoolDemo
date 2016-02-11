@@ -30,3 +30,14 @@ class GemImgs(models.Model):
 	imgType = models.ForeignKey(GemImgTypes, on_delete=models.PROTECT, blank=True, null=True) #one GemImgType to many  GemImgs
 	url = models.URLField(max_length = 2000, blank=False, null=False, default="image_not_avail.png" )
 
+# class GemsAvailable():
+#     name = models.CharField(max_length = 255, blank=False, null=False )
+
+#     @classmethod
+#     def create(cls, title):
+#         book = cls(title=title)
+#         # do something with the book
+#         return book
+
+# 	book = Book.create("Pride and Prejudice")
+
