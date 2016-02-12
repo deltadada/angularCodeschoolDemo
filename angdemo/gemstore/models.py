@@ -22,7 +22,7 @@ class Reviews(models.Model):
 
 class GemImgTypes(models.Model):
 	gemImgTypes_id = models.AutoField(primary_key=True, blank=False, null=False)
-	imgType = models.CharField(max_length=32, blank=False, null=False)
+	imgType = models.CharField(max_length=32, blank=False, null=False, unique=True)
 
 class GemImgs(models.Model):
 	gemImgs_id = models.AutoField(primary_key=True, blank=False, null=False)
