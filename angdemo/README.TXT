@@ -28,7 +28,7 @@ python manage.py runserver
 
 
 
-<!-- 
+
 SELECT 
 	gemstore_gems.name,
 	gemstore_gems.price,
@@ -49,4 +49,21 @@ ON
 AND 
 	gemstore_gemimgtypes.imgType = 'THUMB'
  
- -->
+
+
+from gemstore.models import Gems
+from gemstore.models import GemImgs
+from gemstore.models import GemImgTypes
+from gemstore.models import Reviews
+
+
+gems_all = Gems.objects.all().select_related('GemImgs').filter(canPurchase = True).filter(soldOut = False).order_by('price')
+
+g = GemImgs.objects.prefetch_related('gem')
+
+g = GemImgs.objects.prefetch_related('gem').filter(imgType = 1)
+g[0].imgType.imgType
+
+g = GemImgs.objects.prefetch_related('gem').filter(imgType.imgType = 'THUMB')
+g[0].imgType.imgType
+
