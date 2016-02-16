@@ -17,19 +17,22 @@
 <table class="table table-striped">
 {% for g in gems_all %}
 <tr>
-<td><img src ="{% static "assets/img/dec_th.png" %}">
+<td>
+  <!--e.g. /static/assets/img/dec_th.png -->
+<!--   <img src ="{% static "assets/img/dec_th.png" %}"> -->  
+  <img src ="{% static g.url %}">
 </td>
   <td>
-  {{g.name}}
+  {{g.gem.name}}
   </td>
   <td>
-  {{g.price}}
+  {{g.gem.price}}
   </td>
   <td>
-  {{g.description}}
+  {{g.gem.description}}
   </td>
   <td>
-  {{g.stars}}
+  {{g.gem.stars}}
   </td>
 </tr>
 {% endfor %}

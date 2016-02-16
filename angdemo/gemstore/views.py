@@ -14,7 +14,7 @@ def home(request):
 def django_db_dump(request):
     title = "All Available Gems"
     testString = "test"
-    gems_all = Gems.objects.all().filter(canPurchase = True).filter(soldOut = False).order_by('price')
+    gems_all = GemImgs.objects.filter(gem__soldOut=False, gem__canPurchase=True, imgType__imgType = 'THUMB')
     return render(request, './gemstore/django_db_dump.html', {'title' : title, 'gems_all':gems_all})
 
 def index(request):

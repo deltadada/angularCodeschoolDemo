@@ -4,6 +4,12 @@ import datetime
 import uuid
 from django.utils import timezone
 
+
+IMAGE_TYPES = (
+    ('A', 'FULL'),
+    ('B', 'THUMB'),
+)
+
 # Create your models here.
 class Gems(models.Model):
 	gems_id = models.AutoField(primary_key=True, blank=False, null=False)
@@ -12,6 +18,9 @@ class Gems(models.Model):
 	description = models.CharField(max_length = 1056, blank=True, null=True )
 	canPurchase = models.BooleanField(default = False )
 	soldOut = models.BooleanField(default = False )
+
+	def available(self, **kwargs):
+		return self.filter(canPurchase=True, soldOut=False)
 
 class Reviews(models.Model):
 	reviews_id = models.AutoField(primary_key=True, blank=False, null=False)
@@ -27,17 +36,11 @@ class GemImgTypes(models.Model):
 class GemImgs(models.Model):
 	gemImgs_id = models.AutoField(primary_key=True, blank=False, null=False)
 	gem = models.ForeignKey(Gems, on_delete=models.CASCADE, blank=True, null=False) #one Gem to many  GemImgs
-	imgType = models.ForeignKey(GemImgTypes, on_delete=models.PROTECT, blank=True, null=True) #one GemImgType to many  GemImgs
+	imgType = models.ForeignKey(GemImgTypes, on_delete=models.PROTECT, null=True) #one GemImgType to many  GemImgs
 	url = models.URLField(max_length = 2000, blank=False, null=False, default="image_not_avail.png" )
+	imgTypeChar = models.CharField( max_length = 1, choices=IMAGE_TYPES) # link to array in models.py instead of table
 
-# class GemsAvailable():
-#     name = models.CharField(max_length = 255, blank=False, null=False )
+	def thumbs(self, **kwargs):
+		return self.filter(imgType = GemImgTypes.objects.get(imgType__exact = 'THUMB'))
 
-#     @classmethod
-#     def create(cls, title):
-#         book = cls(title=title)
-#         # do something with the book
-#         return book
-
-# 	book = Book.create("Pride and Prejudice")
-
+	

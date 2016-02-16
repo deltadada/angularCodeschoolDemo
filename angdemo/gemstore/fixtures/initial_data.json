@@ -210,7 +210,8 @@
         "fields": {
             "gem": 1,
             "imgType": 1,
-            "url": "/assets/img/dec.png"
+            "url": "assets/img/dec.png",
+            "imgTypeChar": "A"
         }
     },
     {
@@ -219,7 +220,8 @@
         "fields": {
             "gem": 1,
             "imgType": 2,
-            "url": "/assets/img/dec_th.png"
+            "url": "assets/img/dec_th.png",
+            "imgTypeChar": "B"
         }
     },
     {
@@ -228,7 +230,8 @@
         "fields": {
             "gem": 2,
             "imgType": 1,
-            "url": "/assets/img/pent.png"
+            "url": "assets/img/pent.png",
+            "imgTypeChar": "A"
         }
     },
     {
@@ -237,7 +240,8 @@
         "fields": {
             "gem": 2,
             "imgType": 2,
-            "url": "/assets/img/pent_th.png"
+            "url": "assets/img/pent_th.png",
+            "imgTypeChar": "B"
         }
     },
     {
@@ -246,7 +250,8 @@
         "fields": {
             "gem": 3,
             "imgType": 1,
-            "url": "/assets/img/round.png"
+            "url": "assets/img/round.png",
+            "imgTypeChar": "A"
         }
     },
     {
@@ -255,7 +260,8 @@
         "fields": {
             "gem": 3,
             "imgType": 2,
-            "url": "/assets/img/round_th.png"
+            "url": "assets/img/round_th.png",
+            "imgTypeChar": "B"
         }
     },
     {
@@ -264,7 +270,8 @@
         "fields": {
             "gem": 4,
             "imgType": 1,
-            "url": "/assets/img/sq.png"
+            "url": "assets/img/sq.png",
+            "imgTypeChar": "A"
         }
     },
     {
@@ -273,7 +280,8 @@
         "fields": {
             "gem": 4,
             "imgType": 2,
-            "url": "/assets/img/sq_th.png"
+            "url": "assets/img/sq_th.png",
+            "imgTypeChar": "A"
         }
     }
 ]

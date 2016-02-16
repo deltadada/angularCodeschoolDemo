@@ -57,13 +57,106 @@ from gemstore.models import GemImgTypes
 from gemstore.models import Reviews
 
 
-gems_all = Gems.objects.all().select_related('GemImgs').filter(canPurchase = True).filter(soldOut = False).order_by('price')
+gems_avail = Gems.objects.all().filter(canPurchase = True).filter(soldOut = False).order_by('price')
 
-g = GemImgs.objects.prefetch_related('gem')
+imgs = GemImgs.objects.prefetch_related('gem')
 
-g = GemImgs.objects.prefetch_related('gem').filter(imgType = 1)
-g[0].imgType.imgType
+imgsindex = GemImgs.objects.prefetch_related('gem').filter(imgType = 1)
+imgsindex[0].imgType.imgType
 
-g = GemImgs.objects.prefetch_related('gem').filter(imgType.imgType = 'THUMB')
-g[0].imgType.imgType
+
+~~~~~
+
+thumb = GemImgTypes.objects.get(imgType__exact = 'THUMB') // this is django for WHERE  -- see field lookup
+
+thumbimgs = GemImgs.objects.prefetch_related('gem').filter(imgType = thumb)
+
+for img in thumbimgs:
+	print(img.url)
+[prints thumb urls only]
+
+imgs = GemImgs.objects.prefetch_related('gem')
+
+for img in thumbimgs:
+	print(img.gem.name)
+[prints gem names]
+
+~~~~~~
+gems_avail = Gems.objects.all().filter(canPurchase = True).filter(soldOut = False).order_by('price')
+len(gems_avail) # 3
+thumb = GemImgTypes.objects.get(imgType__exact = 'THUMB') # this is django for WHERE  -- see field lookup
+thumbimgs = GemImgs.objects.prefetch_related('gem').filter(imgType = thumb)
+for displayGem in thumbimgs:
+	print(displayGem.gem.name, displayGem.gem.description, displayGem.gem.price, displayGem.gem.soldOut, displayGem.url)
+# displays all gems (incl soldout = true) with only thumb urls
+
+~~~~~~
+gems_avail = Gems.objects.all().filter(canPurchase = True).filter(soldOut = False).order_by('price')
+len(gems_avail) # 3 -- correct
+thumb = GemImgTypes.objects.get(imgType__exact = 'THUMB') # WHERE in django  -- see field lookup
+availGemDisplay = GemImgs.objects.filter(imgType = thumb).prefetch_related('gem').filter(gem = gems_avail)
+len(availGemDisplay) # 1 - should have 3 of 4
+for img in availGemDisplay:
+	print(img.gem.name, img.gem.description, img.gem.price, img.gem.soldOut, img.url)
+# only returns first row of gems where soldOut = false
+~~~~~~
+gems_avail = Gems.objects.all().filter(canPurchase = True).filter(soldOut = False).order_by('price')
+len(gems_avail) # 3 -- correct
+thumb = GemImgTypes.objects.get(imgType__exact = 'THUMB') # WHERE in django  -- see field lookup
+thumbimgs = GemImgs.objects.prefetch_related('gem').filter(imgType = thumb)
+len(thumbimgs) # 4 correct
+availGemDisplay = thumbimgs.prefetch_related('gem').filter(gem = gems_avail)
+len(availGemDisplay)
+for img in availGemDisplay:
+	print(img.gem.name, img.gem.soldOut, img.url)
+~~~~~~
+gems_avail = Gems.objects.all().filter(canPurchase = True).filter(soldOut = False).order_by('price')
+len(gems_avail) # 3 -- correct
+thumb = GemImgTypes.objects.get(imgType__exact = 'THUMB') # WHERE in django  -- see field lookup
+thumbimgs = GemImgs.objects.prefetch_related('gem').filter(imgType = thumb)
+len(thumbimgs) # 4 correct
+availGemDisplay = thumbimgs.objects.all().filter(gem = gems_avail)
+len(availGemDisplay)
+for img in availGemDisplay:
+	print(img.gem.name, img.gem.soldOut, img.url)
+
+~~~~~~
+availGemDisplay = Gems.objects.filter(soldOut=False).filter(canPurchase=True).filter(gemimgs__imgTypeChar = 'B')
+for img in availGemDisplay:
+	print(img.name, img.soldOut)
+
+
+~~~~~~
+gems_avail = Gems.objects.all().filter(canPurchase = True).filter(soldOut = False).order_by('price')
+len(gems_avail) # 3 -- correct
+thumb = GemImgTypes.objects.get(imgType__exact = 'THUMB') # WHERE in django  -- see field lookup
+thumbimgs = gems_avail.prefetch_related('gemimgs').filter(gemimgs__imgType = thumb)
+dir(thumbimgs)
+
+len(thumbimgs) # 4 correct
+availGemDisplay = thumbimgs.objects.all().filter(gem = gems_avail)
+len(availGemDisplay)
+for img in thumbimgs:
+	print(img.gem.name, img.gem.soldOut, img.url)
+
+~~~~~~
+
+availGems = Gems.available(Gems.objects.all())
+
+for displayGem in availGems:
+	print(displayGem.name, " | ", displayGem.description, " | ",  displayGem.price, " | ",  displayGem.soldOut)
+
+
+availGems_ID = Gems.available(Gems.objects.all()).values_list('gems_id', flat = True)
+
+print(availGems.query)
+
+thumbimgs = GemImgs.thumbs(GemImgs.objects.prefetch_related(availGems))
+for displayGem in thumbimgs:
+	print(displayGem.gem.name, " | ", displayGem.gem.description, " | ",  displayGem.gem.price, " | ",  displayGem.gem.soldOut, " | ",  displayGem.url)
+
+
+available = GemImgs.objects.filter(gem__soldOut=False, gem__canPurchase=True, imgType__imgType = 'THUMB')
+for i in available:
+    print(i.gem.name, i.gem.soldOut, i.gem.canPurchase, i.url)
 
