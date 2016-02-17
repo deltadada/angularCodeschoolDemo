@@ -155,8 +155,15 @@ thumbimgs = GemImgs.thumbs(GemImgs.objects.prefetch_related(availGems))
 for displayGem in thumbimgs:
 	print(displayGem.gem.name, " | ", displayGem.gem.description, " | ",  displayGem.gem.price, " | ",  displayGem.gem.soldOut, " | ",  displayGem.url)
 
+##available = GemImgs.objects.filter(gem__soldOut=False, gem__canPurchase=True, imgType__imgType = 'THUMB').values_list('gem__id', 'gem__name', 'gem__description','gem__price','url','gem__soldOut','gem__canPurchase').distinct('gem__id') # not supported
+
 
 available = GemImgs.objects.filter(gem__soldOut=False, gem__canPurchase=True, imgType__imgType = 'THUMB')
 for i in available:
     print(i.gem.name, i.gem.soldOut, i.gem.canPurchase, i.url)
+
+
+
+
+
 
