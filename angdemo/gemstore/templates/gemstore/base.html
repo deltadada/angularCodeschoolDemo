@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en"  ng-app='store'>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+{% block headLoad %}
+    <!-- load dependent js, css -->
+{% endblock %}
+
+  		<link rel="stylesheet" type="text/css" href="{% static "assets/css/bootstrap.min.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "assets/css/demo.css" %}">
+  <title>Demo: {% block title %}{% endblock %}</title>
+
+</head>
+<body  ng-controller="StoreController as store">
+
+<div class="homenav"><a href="/">home</a></div>
+<hr>
+{% block mainContent %}
+
+<p>If you see this, there is no mainContent block</p>
+
+{% endblock %}
+
+</body>
+</html>

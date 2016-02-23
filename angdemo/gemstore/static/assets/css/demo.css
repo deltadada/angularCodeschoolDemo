@@ -10,3 +10,14 @@
 .ng-dirty.ng-empty{
   border-color:#ccc;
 }
+
+div.homenav{
+	margin:14px;
+}
+ul.homelist{
+	list-style-type:none;
+	font-size: 16pt;
+	font-family: sans-serif;
+
+}
+

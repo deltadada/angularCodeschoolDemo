@@ -1,0 +1,32 @@
+{% extends "gemstore/base.html" %}
+{% load staticfiles%}
+
+{% block headLoad %}
+    <!-- load dependent js, css -->
+     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+
+    <div ng-include="{% static 'angcludes/product-display.html' %}"></div>
+
+	<div ng-include="{% static 'angcludes/hello-world.html' %}"></div>
+{% endblock %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block mainContent %}
+
+<p>I am {$ 9 + 6 $}</p>
+<hr>
+<div ng-include="'{% static "angcludes/product-display.html" %}'"></div>
+
+<div ng-include="'{% static "angcludes/hello-world.html" %}'"></div>
+
+
+		
+<!-- load angular -->
+		<script type="text/javascript" src="{% static "assets/js/angular.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "assets/js/angmodules/app.js" %}"></script>
+		<script type="text/javascript" src="{% static "assets/js/angmodules/products.js" %}"></script>
+
+{% endblock %}

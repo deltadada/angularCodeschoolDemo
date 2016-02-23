@@ -19,12 +19,16 @@ def home(request):
     title = "Home"
     return render(request, './gemstore/index.html', {'title' : title})
 
-def django_db_dump(request):
-    title = "All Available Gems"
+def angular_display(request):
+    title = "Angular Display"
+    return render(request, './gemstore/angular_display.html', {'title' : title})
+
+def django_display(request):
+    title = "Django Display"
     testString = "test"
     gems_all = ThumbDisplays.objects.filter(gem__soldOut=False, gem__canPurchase=True)
 
-    return render(request, './gemstore/django_db_dump.html', {'title' : title, 'gems_all':gems_all})
+    return render(request, './gemstore/django_display.html', {'title' : title, 'gems_all':gems_all})
 
 def index(request):
     return HttpResponse("Hello, world. You're at the gemstore index.")

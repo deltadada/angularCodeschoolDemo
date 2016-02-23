@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--campus.codeschool.com/courses/shaping-up-with-angular-js/-->
+
+<!-- cd C:\gitrepo\angular_demo\django_angdemo\angdemo\   -->
+<html ng-app='store'><!-- directive cites app var in app.js -->
+	<head>
+		<link rel="stylesheet" type="text/css" href="{% static "assets/css/bootstrap.min.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "assets/css/demo.css" %}">
+	</head>
+	<body ng-controller="StoreController as store">
+<p>I am {$ 9 + 6 $}</p>
+<hr>
+<div ng-include="'{% static "angcludes/product-display.html" %}'"></div>
+
+<div ng-include="'{% static "angcludes/hello-world.html" %}'"></div>
+
+
+		
+<!-- load angular -->
+		<script type="text/javascript" src="{% static "assets/js/angular.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "assets/js/angmodules/app.js" %}"></script>
+		<script type="text/javascript" src="{% static "assets/js/angmodules/products.js" %}"></script>
+
+	</body>
+</html>

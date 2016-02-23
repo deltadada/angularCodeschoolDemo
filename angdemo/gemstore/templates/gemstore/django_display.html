@@ -1,0 +1,39 @@
+{% extends "gemstore/base.html" %}
+
+{% load staticfiles%}
+{% block headLoad %}
+    <!-- load dependent js, css be sure to {% load staticfiles%} on this page!! -->
+{% endblock %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block mainContent %}
+<div class="container col-">
+<table class="table table-striped">
+{% for g in gems_all %}
+<tr>
+<td>
+  <!--e.g. /static/assets/img/dec_th.png -->
+<!--   <img src ="{% static "assets/img/dec_th.png" %}"> -->  
+  <img src ="{% static g.url %}">
+</td>
+  <td>
+  {{g.gem.name}}
+  </td>
+  <td>
+  {{g.gem.price}}
+  </td>
+  <td>
+  {{g.gem.description}}
+  </td>
+  <td>
+  {{g.gem.stars}}
+  </td>
+</tr>
+{% endfor %}
+</table>
+</div>
+
+{% endblock %}
