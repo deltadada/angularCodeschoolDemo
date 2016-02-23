@@ -195,93 +195,85 @@
         }
     },
     {
-        "model": "gemstore.gemimgtypes",
-        "pk": 1,
-        "fields": {"imgType": "FULL"}
-    },
-    {
-        "model": "gemstore.gemimgtypes",
-        "pk": 2,
-        "fields": {"imgType": "THUMB"}
-    },
-    {
-        "model": "gemstore.gemimgs",
+        "model": "gemstore.FullDisplays",
         "pk": 1,
         "fields": {
-            "gem": 1,
-            "imgType": 1,
-            "url": "assets/img/dec.png",
-            "imgTypeChar": "A"
+            "gem": null,
+            "url": "assets/img/noImage.png"
         }
     },
     {
-        "model": "gemstore.gemimgs",
+        "model": "gemstore.FullDisplays",
         "pk": 2,
         "fields": {
             "gem": 1,
-            "imgType": 2,
-            "url": "assets/img/dec_th.png",
-            "imgTypeChar": "B"
+            "url": "assets/img/dec.png"
         }
     },
     {
-        "model": "gemstore.gemimgs",
+        "model": "gemstore.FullDisplays",
         "pk": 3,
         "fields": {
             "gem": 2,
-            "imgType": 1,
-            "url": "assets/img/pent.png",
-            "imgTypeChar": "A"
+            "url": "assets/img/pent.png"
         }
     },
     {
-        "model": "gemstore.gemimgs",
+        "model": "gemstore.FullDisplays",
         "pk": 4,
         "fields": {
-            "gem": 2,
-            "imgType": 2,
-            "url": "assets/img/pent_th.png",
-            "imgTypeChar": "B"
+            "gem": 3,
+            "url": "assets/img/round.png"
         }
     },
     {
-        "model": "gemstore.gemimgs",
+        "model": "gemstore.FullDisplays",
         "pk": 5,
         "fields": {
-            "gem": 3,
-            "imgType": 1,
-            "url": "assets/img/round.png",
-            "imgTypeChar": "A"
+            "gem": 4,
+            "url": "assets/img/sq.png"
         }
     },
     {
-        "model": "gemstore.gemimgs",
-        "pk": 6,
+        "model": "gemstore.ThumbDisplays",
+        "pk": 1,
+        "fields": {
+            "gem": null,
+            "url": "assets/img/noImage_th.png"
+        }
+    },
+    {
+        "model": "gemstore.ThumbDisplays",
+        "pk": 2,
+        "fields": {
+            "gem": 1,
+            "url": "assets/img/dec_th.png"
+        }
+    },
+    {
+        "model": "gemstore.ThumbDisplays",
+        "pk": 3,
+        "fields": {
+            "gem": 2,
+            "url": "assets/img/pent_th.png"
+        }
+    },
+    {
+        "model": "gemstore.ThumbDisplays",
+        "pk": 4,
         "fields": {
             "gem": 3,
-            "imgType": 2,
-            "url": "assets/img/round_th.png",
-            "imgTypeChar": "B"
+            "url": "assets/img/round_th.png"
         }
     },
     {
-        "model": "gemstore.gemimgs",
-        "pk": 7,
+        "model": "gemstore.ThumbDisplays",
+        "pk": 5,
         "fields": {
             "gem": 4,
-            "imgType": 1,
-            "url": "assets/img/sq.png",
-            "imgTypeChar": "A"
-        }
-    },
-    {
-        "model": "gemstore.gemimgs",
-        "pk": 8,
-        "fields": {
-            "gem": 4,
-            "imgType": 2,
-            "url": "assets/img/sq_th.png",
-            "imgTypeChar": "A"
+            "url": "assets/img/sq_th.png"
         }
     }
+ 
+  
 ]

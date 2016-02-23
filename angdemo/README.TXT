@@ -164,6 +164,56 @@ for i in available:
 
 
 
+~~~~~~~~~~~~~~~~~~~
+from gemstore.models import *
+from gemstore.models import Gems
+from gemstore.models import ThumbDisplays
+from gemstore.models import Reviews
+
+available = ThumbDisplays.objects.filter(gem__soldOut=False, gem__canPurchase=True)
+for i in available:
+    print(i.gem.name, i.gem.soldOut, i.gem.canPurchase, i.url)
+
+~~~~
+++++++++++++++
+
+cd C:\gitrepo\angular_demo\angularCodeschoolDemo\angdemo\
+python manage.py runserver 
+
+open another window:
+
+cd C:\gitrepo\angular_demo\angularCodeschoolDemo\angdemo\
+http http://127.0.0.1:8000/gemapi/gemsthumb_list/
+
+http http://127.0.0.1:8000/gemapi/availableGemsThumbs_list/
+
+http http://127.0.0.1:8000/gemapi/gems_list/
 
 
+in shell
+from gemstore.models import *
+from gemstore.serializers import *
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+from django.utils.six import BytesIO
+
+
+t = ThumbDisplays.objects.get(pk=3)
+serializer = ThumbDisplaysSerializer(t)
+serializer.data
+
+
+
+serializer = GemsSerializer(Gems.available(Gems.objects.all()), many=True)
+serializer.data
+content= JSONRenderer().render(serializer.data)
+content
+
+
+stream = BytesIO(content)
+data = JSONParser().parse(stream)
+
+serializer = GemsSerializer(Gems.objects.all(), many=True)
+serializer.data
+content= JSONRenderer().render(serializer.data)
 
